@@ -2,5 +2,7 @@
 2. JavaScript - Sorax, "Выразительное программирование"
 3. Python - https://compscicenter.ru/courses/python/2018-autumn/classes/
 4. Алгоритмы - курс молодого бойца на C
+5. Html
+6. Bootstrap
 
 Лайт режим: подкасты по питону
