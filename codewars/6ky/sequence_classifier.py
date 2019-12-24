@@ -3,24 +3,31 @@ sequence"""
 
 
 def sequence_classifier(arr):
-    answers_dict = {
-        (True, True): 1,  # strictly increasing
-        (False, True): 2,  # not decreasing
-        (True, False): 3,  # strictly decreasing
-        (False, False): 4  # not increasing
-    }
     if len(set(arr)) == 1:
         return 5
-    strictly = arr[1] != arr[0]
-    increasing = arr[1] > arr[0]
-    for number in range(2, len(arr)):
-        if arr[number] < arr[number - 1]:
-            increasing = False
+
+    if len(set(arr)) == len(arr):
+        strictly = True
+    else:
+        strictly = False
+
+    if sorted(arr) == arr:
+        increasing = True
+    elif sorted(arr, reverse=True) == arr:
+        increasing = False
+    else:
+        return 0
+
+    if strictly:
+        if increasing:
+            return 1
         else:
-            increasing = True
-        if arr[number] == arr[number - 1]:
-            strictly = False
-    return answers_dict[(strictly, increasing)]
+            return 3
+    else:
+        if increasing:
+            return 2
+        else:
+            return 4
 
 
-print(sequence_classifier([8, 8, 8, 8, 8, 9]))
+print(sequence_classifier([3, 5, 8, 1, 14, 3]))
