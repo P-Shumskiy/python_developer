@@ -25,11 +25,16 @@
 #
 # foo(1, 2, 3, c='Vasya')
 
-import random
+# import random
+#
+#
+# def int_to_str(lst: list):
+#     return list(map(lambda x: str(x), lst))
+#
+#
+# print(int_to_str([random.randint(1, 100) for i in range(100)]))
 
+test_tuple = (1, "1", [1])
 
-def int_to_str(lst: list):
-    return list(map(lambda x: str(x), lst))
-
-
-print(int_to_str([random.randint(1, 100) for i in range(100)]))
+for element in test_tuple:
+    print(f"{element}, type is  {type(element)}")
