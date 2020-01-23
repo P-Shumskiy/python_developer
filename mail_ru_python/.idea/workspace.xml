@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cd008c0e-17b8-4b49-ab1f-edf60afac558" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/decorator_to_json.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file_reader.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +39,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.decorator_to_json">
+  <component name="RunManager" selected="Python.inheritance_of_classes">
     <configuration name="decorator_to_json" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="mail_ru_python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -76,6 +76,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/filess.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="inheritance_of_classes" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="mail_ru_python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/inheritance_of_classes.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -128,35 +150,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="quadratic_equation" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="mail_ru_python" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/quadratic_equation.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.inheritance_of_classes" />
         <item itemvalue="Python.decorator_to_json" />
         <item itemvalue="Python.filess" />
         <item itemvalue="Python.key_value_storage" />
         <item itemvalue="Python.lection" />
-        <item itemvalue="Python.quadratic_equation" />
       </list>
     </recent_temporary>
   </component>
@@ -185,7 +185,8 @@
       <workItem from="1579358095141" duration="2789000" />
       <workItem from="1579514150865" duration="3514000" />
       <workItem from="1579623483431" duration="10744000" />
-      <workItem from="1579692759152" duration="1672000" />
+      <workItem from="1579692759152" duration="3708000" />
+      <workItem from="1579796089130" duration="2757000" />
     </task>
     <task id="LOCAL-00001" summary="diploma&#10;mail_ru_python">
       <created>1579531666409</created>
@@ -201,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579634182437</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="wrote a decorator, which formats output to json format">
+      <created>1579694738418</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1579694738419</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,49 +218,50 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="diploma&#10;mail_ru_python" />
     <MESSAGE value="key_value_storage.py done!&#10;TODO refactor in functional style" />
-    <option name="LAST_COMMIT_MESSAGE" value="key_value_storage.py done!&#10;TODO refactor in functional style" />
+    <MESSAGE value="wrote a decorator, which formats output to json format" />
+    <option name="LAST_COMMIT_MESSAGE" value="wrote a decorator, which formats output to json format" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1594" y="234" width="642" height="646" key="#key_value_storage" timestamp="1579623935825">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
     <state x="1594" y="234" width="642" height="646" key="#key_value_storage/0.27.2560.1053@0.27.2560.1053" timestamp="1579623935825" />
-    <state x="1554" y="27" width="757" height="1045" key="CommitChangelistDialog2" timestamp="1579694594058">
+    <state x="989" y="27" width="757" height="1045" key="CommitChangelistDialog2" timestamp="1579694738333">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state x="1554" y="27" width="757" height="1045" key="CommitChangelistDialog2/0.27.2560.1053@0.27.2560.1053" timestamp="1579694594058" />
+    <state x="989" y="27" width="757" height="1045" key="CommitChangelistDialog2/0.27.2560.1053@0.27.2560.1053" timestamp="1579694738333" />
     <state x="100" y="127" width="2360" height="853" key="DiffContextDialog" timestamp="1579623524243">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
     <state x="100" y="127" width="2360" height="853" key="DiffContextDialog/0.27.2560.1053@0.27.2560.1053" timestamp="1579623524243" />
-    <state width="1234" height="255" key="GridCell.Tab.0.bottom" timestamp="1579694321204">
+    <state width="2514" height="255" key="GridCell.Tab.0.bottom" timestamp="1579725615040">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="1234" height="255" key="GridCell.Tab.0.bottom/0.27.2560.1053@0.27.2560.1053" timestamp="1579694321204" />
-    <state width="1234" height="255" key="GridCell.Tab.0.center" timestamp="1579694321204">
+    <state width="2514" height="255" key="GridCell.Tab.0.bottom/0.27.2560.1053@0.27.2560.1053" timestamp="1579725615040" />
+    <state width="2514" height="255" key="GridCell.Tab.0.center" timestamp="1579725615039">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="1234" height="255" key="GridCell.Tab.0.center/0.27.2560.1053@0.27.2560.1053" timestamp="1579694321203" />
-    <state width="1234" height="255" key="GridCell.Tab.0.left" timestamp="1579694321203">
+    <state width="2514" height="255" key="GridCell.Tab.0.center/0.27.2560.1053@0.27.2560.1053" timestamp="1579725615039" />
+    <state width="2514" height="255" key="GridCell.Tab.0.left" timestamp="1579725615039">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="1234" height="255" key="GridCell.Tab.0.left/0.27.2560.1053@0.27.2560.1053" timestamp="1579694321203" />
-    <state width="1234" height="255" key="GridCell.Tab.0.right" timestamp="1579694321204">
+    <state width="2514" height="255" key="GridCell.Tab.0.left/0.27.2560.1053@0.27.2560.1053" timestamp="1579725615039" />
+    <state width="2514" height="255" key="GridCell.Tab.0.right" timestamp="1579725615040">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="1234" height="255" key="GridCell.Tab.0.right/0.27.2560.1053@0.27.2560.1053" timestamp="1579694321204" />
+    <state width="2514" height="255" key="GridCell.Tab.0.right/0.27.2560.1053@0.27.2560.1053" timestamp="1579725615040" />
     <state x="769" y="188" width="1022" height="737" key="SettingsEditor" timestamp="1579358106795">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
     <state x="769" y="188" width="1022" height="737" key="SettingsEditor/0.27.2560.1053@0.27.2560.1053" timestamp="1579358106795" />
-    <state x="875" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1579531685349">
+    <state x="875" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1579694743676">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state x="875" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.2560.1053@0.27.2560.1053" timestamp="1579531685349" />
-    <state x="936" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1579692760202">
+    <state x="875" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.2560.1053@0.27.2560.1053" timestamp="1579694743676" />
+    <state x="936" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1579796090989">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state x="936" y="381" key="com.intellij.ide.util.TipDialog/0.27.2560.1053@0.27.2560.1053" timestamp="1579692760202" />
+    <state x="936" y="381" key="com.intellij.ide.util.TipDialog/0.27.2560.1053@0.27.2560.1053" timestamp="1579796090989" />
     <state x="1067" y="293" width="405" height="533" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1579634050772">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
@@ -267,6 +276,7 @@
     <SUITE FILE_PATH="coverage/mail_ru_python$quadratic_equation.coverage" NAME="quadratic_equation Coverage Results" MODIFIED="1579360450842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/mail_ru_python$stairs.coverage" NAME="stairs Coverage Results" MODIFIED="1579360244621" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/mail_ru_python$key_value_storage.coverage" NAME="key_value_storage Coverage Results" MODIFIED="1579624908260" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/mail_ru_python$inheritance_of_classes.coverage" NAME="inheritance_of_classes Coverage Results" MODIFIED="1579716603145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/mail_ru_python$filess.coverage" NAME="filess Coverage Results" MODIFIED="1579629489504" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/mail_ru_python$decorator_to_json.coverage" NAME="decorator_to_json Coverage Results" MODIFIED="1579694321187" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
