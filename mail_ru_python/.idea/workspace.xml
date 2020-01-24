@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cd008c0e-17b8-4b49-ab1f-edf60afac558" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cars.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testing_cars.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cars.py" beforeDir="false" afterPath="$PROJECT_DIR$/cars.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing_cars.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_cars.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +53,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
   </component>
   <component name="RunManager" selected="Python.testing_cars">
     <configuration name="cars" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -207,7 +205,8 @@
       <workItem from="1579796089130" duration="3944000" />
       <workItem from="1579803426306" duration="5818000" />
       <workItem from="1579809723020" duration="291000" />
-      <workItem from="1579810022872" duration="2654000" />
+      <workItem from="1579810022872" duration="2911000" />
+      <workItem from="1579856672273" duration="7368000" />
     </task>
     <task id="LOCAL-00001" summary="diploma&#10;mail_ru_python">
       <created>1579531666409</created>
@@ -244,7 +243,21 @@
       <option name="project" value="LOCAL" />
       <updated>1579812633513</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="programm done, 43/84 test failed. Need add car_type">
+      <created>1579812890094</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1579812890094</updated>
+    </task>
+    <task id="LOCAL-00007" summary="programm done, 43/84 test failed. Need add car_type">
+      <created>1579812897872</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1579812897872</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -256,49 +269,66 @@
     <MESSAGE value="wrote a decorator, which formats output to json format" />
     <MESSAGE value="implemented simple class file_reader" />
     <MESSAGE value="small visual fixex" />
-    <option name="LAST_COMMIT_MESSAGE" value="small visual fixex" />
+    <MESSAGE value="programm done, 43/84 test failed. Need add car_type" />
+    <option name="LAST_COMMIT_MESSAGE" value="programm done, 43/84 test failed. Need add car_type" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1594" y="234" width="642" height="646" key="#key_value_storage" timestamp="1579623935825">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
     <state x="1594" y="234" width="642" height="646" key="#key_value_storage/0.27.2560.1053@0.27.2560.1053" timestamp="1579623935825" />
-    <state x="989" y="27" width="757" height="1045" key="CommitChangelistDialog2" timestamp="1579812890018">
+    <state x="251" y="27" width="1495" height="1045" key="CommitChangelistDialog2" timestamp="1579864200273">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state x="989" y="27" width="757" height="1045" key="CommitChangelistDialog2/0.27.2560.1053@0.27.2560.1053" timestamp="1579812890018" />
+    <state x="251" y="27" width="1495" height="1045" key="CommitChangelistDialog2/0.27.2560.1053@0.27.2560.1053" timestamp="1579864200273" />
     <state x="100" y="127" width="2360" height="853" key="DiffContextDialog" timestamp="1579623524243">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
     <state x="100" y="127" width="2360" height="853" key="DiffContextDialog/0.27.2560.1053@0.27.2560.1053" timestamp="1579623524243" />
-    <state width="2514" height="263" key="GridCell.Tab.0.bottom" timestamp="1579812778385">
+    <state width="2514" height="252" key="GridCell.Tab.0.bottom" timestamp="1579863888177">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="2514" height="263" key="GridCell.Tab.0.bottom/0.27.2560.1053@0.27.2560.1053" timestamp="1579812778385" />
-    <state width="2514" height="263" key="GridCell.Tab.0.center" timestamp="1579812778384">
+    <state width="2514" height="252" key="GridCell.Tab.0.bottom/0.27.2560.1053@0.27.2560.1053" timestamp="1579863888177" />
+    <state width="2514" height="252" key="GridCell.Tab.0.center" timestamp="1579863888177">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="2514" height="263" key="GridCell.Tab.0.center/0.27.2560.1053@0.27.2560.1053" timestamp="1579812778384" />
-    <state width="2514" height="263" key="GridCell.Tab.0.left" timestamp="1579812778384">
+    <state width="2514" height="252" key="GridCell.Tab.0.center/0.27.2560.1053@0.27.2560.1053" timestamp="1579863888177" />
+    <state width="2514" height="252" key="GridCell.Tab.0.left" timestamp="1579863888177">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="2514" height="263" key="GridCell.Tab.0.left/0.27.2560.1053@0.27.2560.1053" timestamp="1579812778384" />
-    <state width="2514" height="263" key="GridCell.Tab.0.right" timestamp="1579812778385">
+    <state width="2514" height="252" key="GridCell.Tab.0.left/0.27.2560.1053@0.27.2560.1053" timestamp="1579863888177" />
+    <state width="2514" height="252" key="GridCell.Tab.0.right" timestamp="1579863888177">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="2514" height="263" key="GridCell.Tab.0.right/0.27.2560.1053@0.27.2560.1053" timestamp="1579812778385" />
-    <state x="156" y="105" width="1022" height="737" key="SettingsEditor" timestamp="1579810600142">
+    <state width="2514" height="252" key="GridCell.Tab.0.right/0.27.2560.1053@0.27.2560.1053" timestamp="1579863888177" />
+    <state width="2514" height="330" key="GridCell.Tab.1.bottom" timestamp="1579859150644">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state x="156" y="105" width="1022" height="737" key="SettingsEditor/0.27.2560.1053@0.27.2560.1053" timestamp="1579810600142" />
+    <state width="2514" height="330" key="GridCell.Tab.1.bottom/0.27.2560.1053@0.27.2560.1053" timestamp="1579859150644" />
+    <state width="2514" height="330" key="GridCell.Tab.1.center" timestamp="1579859150644">
+      <screen x="0" y="27" width="2560" height="1053" />
+    </state>
+    <state width="2514" height="330" key="GridCell.Tab.1.center/0.27.2560.1053@0.27.2560.1053" timestamp="1579859150644" />
+    <state width="2514" height="330" key="GridCell.Tab.1.left" timestamp="1579859150643">
+      <screen x="0" y="27" width="2560" height="1053" />
+    </state>
+    <state width="2514" height="330" key="GridCell.Tab.1.left/0.27.2560.1053@0.27.2560.1053" timestamp="1579859150643" />
+    <state width="2514" height="330" key="GridCell.Tab.1.right" timestamp="1579859150644">
+      <screen x="0" y="27" width="2560" height="1053" />
+    </state>
+    <state width="2514" height="330" key="GridCell.Tab.1.right/0.27.2560.1053@0.27.2560.1053" timestamp="1579859150644" />
+    <state x="156" y="105" width="1022" height="737" key="SettingsEditor" timestamp="1579862525749">
+      <screen x="0" y="27" width="2560" height="1053" />
+    </state>
+    <state x="156" y="105" width="1022" height="737" key="SettingsEditor/0.27.2560.1053@0.27.2560.1053" timestamp="1579862525749" />
     <state x="875" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1579812893074">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
     <state x="875" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.2560.1053@0.27.2560.1053" timestamp="1579812893074" />
-    <state x="936" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1579810024414">
+    <state x="936" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1579856671908">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state x="936" y="381" key="com.intellij.ide.util.TipDialog/0.27.2560.1053@0.27.2560.1053" timestamp="1579810024414" />
+    <state x="936" y="381" key="com.intellij.ide.util.TipDialog/0.27.2560.1053@0.27.2560.1053" timestamp="1579856671908" />
     <state x="1699" y="243" width="442" height="628" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1579805914786">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
@@ -325,6 +355,7 @@
     <SUITE FILE_PATH="coverage/mail_ru_python$inheritance_of_classes.coverage" NAME="inheritance_of_classes Coverage Results" MODIFIED="1579716603145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/mail_ru_python$filess.coverage" NAME="filess Coverage Results" MODIFIED="1579629489504" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/mail_ru_python$testing.coverage" NAME="testing Coverage Results" MODIFIED="1579812280057" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/mail_ru_python$testing_cars.coverage" NAME="testing_cars Coverage Results" MODIFIED="1579863888170" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/mail_ru_python$decorator_to_json.coverage" NAME="decorator_to_json Coverage Results" MODIFIED="1579694321187" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
