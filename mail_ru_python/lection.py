@@ -33,8 +33,30 @@
 #
 #
 # print(int_to_str([random.randint(1, 100) for i in range(100)]))
+#
+# test_tuple = (1, "1", [1])
+#
+# for element in test_tuple:
+#     print(f"{element}, type is  {type(element)}")
 
-test_tuple = (1, "1", [1])
+class MyContainer:
+    def __init__(self, *values):
+        self.values = dict()
+        for value in values:
+            self.values[value] = value**3
 
-for element in test_tuple:
-    print(f"{element}, type is  {type(element)}")
+    def __getitem__(self, item):
+        return self.values[item-1: item+2]
+
+    def __setitem__(self, key, value):
+        self.values[key] = value**3
+
+    def __repr__(self):
+        return f"{self.values}"
+
+
+test = MyContainer(1, 2, 3, 4, 5)
+test[6] = 6
+print(test)
+
+
