@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cd008c0e-17b8-4b49-ab1f-edf60afac558" name="Default Changelist" comment="programm done, 43/84 test failed. Need add car_type">
-      <change afterPath="$PROJECT_DIR$/file2.txt" afterDir="false" />
+    <list default="true" id="cd008c0e-17b8-4b49-ab1f-edf60afac558" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/file_manager.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lection.py" beforeDir="false" afterPath="$PROJECT_DIR$/lection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_cars.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file_context_manager.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +30,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="Jupyter Notebook" />
       </list>
     </option>
   </component>
@@ -37,6 +38,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
+  <component name="JupyterTrust" id="a95d562c-0fc7-46dd-a8f1-1baf5980484e" />
   <component name="ProjectId" id="1WZXSqyFG4DHyRFQ1taXzk9yL6R" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -48,20 +50,26 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/" />
+      <recent name="$PROJECT_DIR$/file_manager.py" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
-  <component name="RunManager" selected="Python.file_context_manager">
+  <component name="RunManager" selected="Python.file_manager (1)">
     <configuration name="cars" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="mail_ru_python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -84,7 +92,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="file_context_manager" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="file_manager (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="mail_ru_python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -92,12 +100,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Downloads/Telegram Desktop" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/file_context_manager.py" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Downloads/Telegram Desktop/file_manager.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -106,7 +114,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="inheritance_of_classes" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="file_manager" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="mail_ru_python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -119,7 +127,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/inheritance_of_classes.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/file_manager.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -174,11 +182,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.file_context_manager" />
+        <item itemvalue="Python.file_manager (1)" />
+        <item itemvalue="Python.file_manager" />
         <item itemvalue="Python.lection" />
         <item itemvalue="Python.testing_cars" />
         <item itemvalue="Python.cars" />
-        <item itemvalue="Python.inheritance_of_classes" />
       </list>
     </recent_temporary>
   </component>
@@ -213,7 +221,15 @@
       <workItem from="1579809723020" duration="291000" />
       <workItem from="1579810022872" duration="2911000" />
       <workItem from="1579856672273" duration="7475000" />
-      <workItem from="1579872969801" duration="6750000" />
+      <workItem from="1579872969801" duration="6983000" />
+      <workItem from="1579938823328" duration="165000" />
+      <workItem from="1579938997747" duration="2147000" />
+      <workItem from="1579959348074" duration="1379000" />
+      <workItem from="1579960736212" duration="1621000" />
+      <workItem from="1579962382670" duration="4340000" />
+      <workItem from="1579967155225" duration="2099000" />
+      <workItem from="1580063215288" duration="1898000" />
+      <workItem from="1580065125044" duration="280000" />
     </task>
     <task id="LOCAL-00001" summary="diploma&#10;mail_ru_python">
       <created>1579531666409</created>
@@ -271,7 +287,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579864243576</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="created skeleton of program, done init, add, NEED TO BE DONE">
+      <created>1579881126323</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1579881126323</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -285,37 +308,42 @@
     <MESSAGE value="small visual fixex" />
     <MESSAGE value="programm done, 43/84 test failed. Need add car_type" />
     <MESSAGE value="cars done, need to be refactored!" />
-    <option name="LAST_COMMIT_MESSAGE" value="cars done, need to be refactored!" />
+    <MESSAGE value="created skeleton of program, done init, add, NEED TO BE DONE" />
+    <option name="LAST_COMMIT_MESSAGE" value="created skeleton of program, done init, add, NEED TO BE DONE" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1594" y="234" width="642" height="646" key="#key_value_storage" timestamp="1579623935825">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
     <state x="1594" y="234" width="642" height="646" key="#key_value_storage/0.27.2560.1053@0.27.2560.1053" timestamp="1579623935825" />
-    <state x="403" y="27" width="1495" height="1045" key="CommitChangelistDialog2" timestamp="1579881101082">
+    <state x="403" y="27" width="1495" height="1045" key="CommitChangelistDialog2" timestamp="1579881126237">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state x="403" y="27" width="1495" height="1045" key="CommitChangelistDialog2/0.27.2560.1053@0.27.2560.1053" timestamp="1579881101082" />
+    <state x="403" y="27" width="1495" height="1045" key="CommitChangelistDialog2/0.27.2560.1053@0.27.2560.1053" timestamp="1579881126237" />
     <state x="100" y="127" width="2360" height="853" key="DiffContextDialog" timestamp="1579623524243">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
     <state x="100" y="127" width="2360" height="853" key="DiffContextDialog/0.27.2560.1053@0.27.2560.1053" timestamp="1579623524243" />
-    <state width="2514" height="244" key="GridCell.Tab.0.bottom" timestamp="1579881118926">
+    <state x="1063" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1580065073225">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="2514" height="244" key="GridCell.Tab.0.bottom/0.27.2560.1053@0.27.2560.1053" timestamp="1579881118926" />
-    <state width="2514" height="244" key="GridCell.Tab.0.center" timestamp="1579881118926">
+    <state x="1063" y="311" width="424" height="491" key="FileChooserDialogImpl/0.27.2560.1053@0.27.2560.1053" timestamp="1580065073225" />
+    <state width="2516" height="235" key="GridCell.Tab.0.bottom" timestamp="1580065114729">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="2514" height="244" key="GridCell.Tab.0.center/0.27.2560.1053@0.27.2560.1053" timestamp="1579881118926" />
-    <state width="2514" height="244" key="GridCell.Tab.0.left" timestamp="1579881118925">
+    <state width="2516" height="235" key="GridCell.Tab.0.bottom/0.27.2560.1053@0.27.2560.1053" timestamp="1580065114729" />
+    <state width="2516" height="235" key="GridCell.Tab.0.center" timestamp="1580065114728">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="2514" height="244" key="GridCell.Tab.0.left/0.27.2560.1053@0.27.2560.1053" timestamp="1579881118925" />
-    <state width="2514" height="244" key="GridCell.Tab.0.right" timestamp="1579881118926">
+    <state width="2516" height="235" key="GridCell.Tab.0.center/0.27.2560.1053@0.27.2560.1053" timestamp="1580065114728" />
+    <state width="2516" height="235" key="GridCell.Tab.0.left" timestamp="1580065114728">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state width="2514" height="244" key="GridCell.Tab.0.right/0.27.2560.1053@0.27.2560.1053" timestamp="1579881118926" />
+    <state width="2516" height="235" key="GridCell.Tab.0.left/0.27.2560.1053@0.27.2560.1053" timestamp="1580065114728" />
+    <state width="2516" height="235" key="GridCell.Tab.0.right" timestamp="1580065114728">
+      <screen x="0" y="27" width="2560" height="1053" />
+    </state>
+    <state width="2516" height="235" key="GridCell.Tab.0.right/0.27.2560.1053@0.27.2560.1053" timestamp="1580065114728" />
     <state width="2514" height="330" key="GridCell.Tab.1.bottom" timestamp="1579864250419">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
@@ -332,18 +360,18 @@
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
     <state width="2514" height="330" key="GridCell.Tab.1.right/0.27.2560.1053@0.27.2560.1053" timestamp="1579864250419" />
-    <state x="156" y="105" width="1022" height="737" key="SettingsEditor" timestamp="1579862525749">
+    <state x="1125" y="180" width="1022" height="737" key="SettingsEditor" timestamp="1580064158756">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state x="156" y="105" width="1022" height="737" key="SettingsEditor/0.27.2560.1053@0.27.2560.1053" timestamp="1579862525749" />
+    <state x="1125" y="180" width="1022" height="737" key="SettingsEditor/0.27.2560.1053@0.27.2560.1053" timestamp="1580064158756" />
     <state x="875" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1579812893074">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
     <state x="875" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.2560.1053@0.27.2560.1053" timestamp="1579812893074" />
-    <state x="936" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1579872970110">
+    <state x="936" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1580065125480">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state x="936" y="381" key="com.intellij.ide.util.TipDialog/0.27.2560.1053@0.27.2560.1053" timestamp="1579872970110" />
+    <state x="936" y="381" key="com.intellij.ide.util.TipDialog/0.27.2560.1053@0.27.2560.1053" timestamp="1580065125480" />
     <state x="1699" y="243" width="442" height="628" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1579805914786">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
@@ -362,16 +390,18 @@
     <state x="943" y="259" width="672" height="678" key="search.everywhere.popup/0.27.2560.1053@0.27.2560.1053" timestamp="1579810613452" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/mail_ru_python$quadratic_equation.coverage" NAME="quadratic_equation Coverage Results" MODIFIED="1579360450842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/mail_ru_python$file_manager__1_.coverage" NAME="file_manager (1) Coverage Results" MODIFIED="1580065021802" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Downloads/Telegram Desktop" />
     <SUITE FILE_PATH="coverage/mail_ru_python$cars.coverage" NAME="cars Coverage Results" MODIFIED="1579811923090" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/mail_ru_python$lection.coverage" NAME="lection Coverage Results" MODIFIED="1579874078481" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/mail_ru_python$quadratic_equation.coverage" NAME="quadratic_equation Coverage Results" MODIFIED="1579360450842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/mail_ru_python$stairs.coverage" NAME="stairs Coverage Results" MODIFIED="1579360244621" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/mail_ru_python$key_value_storage.coverage" NAME="key_value_storage Coverage Results" MODIFIED="1579624908260" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/mail_ru_python$inheritance_of_classes.coverage" NAME="inheritance_of_classes Coverage Results" MODIFIED="1579716603145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/mail_ru_python$filess.coverage" NAME="filess Coverage Results" MODIFIED="1579629489504" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/mail_ru_python$file_manager.coverage" NAME="file_manager Coverage Results" MODIFIED="1579969154641" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/mail_ru_python$testing.coverage" NAME="testing Coverage Results" MODIFIED="1579812280057" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/mail_ru_python$testing_cars.coverage" NAME="testing_cars Coverage Results" MODIFIED="1579863888170" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/mail_ru_python$file_context_manager.coverage" NAME="file_context_manager Coverage Results" MODIFIED="1579881118920" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/mail_ru_python$file_context_manager.coverage" NAME="file_context_manager Coverage Results" MODIFIED="1579966074502" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/mail_ru_python$decorator_to_json.coverage" NAME="decorator_to_json Coverage Results" MODIFIED="1579694321187" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
