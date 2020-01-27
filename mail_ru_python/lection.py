@@ -39,24 +39,136 @@
 # for element in test_tuple:
 #     print(f"{element}, type is  {type(element)}")
 
-class MyContainer:
-    def __init__(self, *values):
-        self.values = dict()
-        for value in values:
-            self.values[value] = value**3
+# class MyContainer:
+#     def __init__(self, *values):
+#         self.values = dict()
+#         for value in values:
+#             self.values[value] = value**3
+#
+#     def __getitem__(self, item):
+#         return self.values[item-1: item+2]
+#
+#     def __setitem__(self, key, value):
+#         self.values[key] = value**3
+#
+#     def __repr__(self):
+#         return f"{self.values}"
+#
+#
+# test = MyContainer(1, 2, 3, 4, 5)
+# test[6] = 6
+# print(test)
 
-    def __getitem__(self, item):
-        return self.values[item-1: item+2]
-
-    def __setitem__(self, key, value):
-        self.values[key] = value**3
-
-    def __repr__(self):
-        return f"{self.values}"
+                                                                # Дескрипторы
 
 
-test = MyContainer(1, 2, 3, 4, 5)
-test[6] = 6
-print(test)
+# class MyDescriptor:
+#     def __get__(self, instance, owner):
+#         print('get')
+#
+#     def __set__(self, instance, value):
+#         print('set')
+#
+#     def __delete__(self, instance):
+#         print('del')
+#
+#
+# class MyClass:
+#     attr = MyDescriptor()
+#
+#
+# if __name__ == "__main__":
+#     my_instance = MyClass()
+#     print(my_instance.attr)
+#     my_instance.attr = 10
+#     del my_instance.attr
 
 
+# class Value:
+#     def __init__(self):
+#         self.value = None
+#
+#     @staticmethod
+#     def _prepare_value(value):
+#         return value * 10
+#
+#     def __get__(self, instance, owner):
+#         return self.value
+#
+#     def __set__(self, instance, value):
+#         self.value = self._prepare_value(value)
+#
+#
+# class Class:
+#     attr = Value()
+#
+#
+# if __name__ == '__main__':
+#     inst = Class()
+#     inst.attr = 10
+#     print(inst.attr)
+
+
+# class ImportantValue:
+#     def __init__(self, amount):
+#         self.amount = amount
+#
+#     def __get__(self, instance, owner):
+#         return self.amount
+#
+#     def __set__(self, instance, value):
+#         with open('log.txt', 'a') as f:
+#             f.write(str(value) + '\n')
+#
+#         self.amount = value ** 2
+#
+#
+# class Account:
+#     def __init__(self, amount):
+#         self.amount = ImportantValue(amount)
+#
+#
+# if __name__ == '__main__':
+#     bob = Account(100)
+#     print(bob.amount)
+#     bob.amount = 200
+#     bob.amount = 250
+
+
+                                                        #  Property
+
+
+# class Robot:
+#     def __init__(self, power):
+#         self._power = power
+#
+#     power = property()
+#
+#     @power.setter
+#     def power(self, value):
+#         if value < 0:
+#             self._power = 0
+#         else:
+#             self._power = value
+#
+#     @power.getter
+#     def power(self):
+#         return self._power
+#
+#     @power.deleter
+#     def power(self):
+#         del self._power
+#
+#
+# robot = Robot(100)
+# print(robot.power)
+# robot.power = -100
+# print(robot.power)
+
+
+class Class: pass
+
+
+print(Class)
+print(type(Class))
+print(type(type))
