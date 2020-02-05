@@ -166,9 +166,46 @@
 # print(robot.power)
 
 
-class Class: pass
+# class Class:
+#     def __init__(self, a, b):
+#         self.a = a
+#         self.b = b
+#
+#     @property
+#     def square(self):
+#         return self.a * self.b
+#
+#
+# test = Class(2, 5)
+# print(test.square)
+#
+# a = type('MyClass', (), {})
+# print(a)
 
 
-print(Class)
-print(type(Class))
-print(type(type))
+def test_coroutine():
+    while True:
+        line = yield  # type: str
+        if 'python' in line:
+            print("I think so too! Give five!")
+        else:
+            print("Hmm..I don't think so!")
+
+
+def func_wrapper_for_test_coroutine():
+    c = test_coroutine()
+    yield from c
+    # next(c)
+    # c.send("python the best language")
+    # c.send("ruby the best language")
+    # c.close()
+
+
+print(type(func_wrapper_for_test_coroutine))
+# func_wrapper_for_test_coroutine()
+a = func_wrapper_for_test_coroutine()
+
+print(type(a))
+print(next(a))
+a.send("python the best language")
+a.send("ruby the best language")
