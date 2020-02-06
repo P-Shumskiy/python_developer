@@ -1,44 +1,49 @@
-import io
+import argparse
 import subprocess
 import pandas as pd
 import numpy as np
 import tempfile
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os
+import datetime
 
 
 class PipelineError(Exception):
     pass
 
 
-# 2) Plot raw coverage by pandas and seaborn TODO
-# 3) Filter low coverage regions TODO
-# 4) Plot new graphs TODO
-# 5) How to obtain names of genes???? TODO
-# 6) How to get regions from bed files with primers to count statistics only for these regions  TODO
+parser = argparse.ArgumentParser()
+parser.add_argument("--sample", help="Name of mapped sample file <BAM>", type=str)
+parser.add_argument("--capture", help="Name of target regions file <BED>", type=str)
+args = parser.parse_args()
+
+if args.sample:
+    print(f"SAMPLE: {args.sample}")
+else:
+    print(f"NO SPECIFIED INPUT SAMPLE, USING DEFAULT")
+if args.capture:
+    print(f"CAPTURE: {args.capture}")
+else:
+    print(f"NO SPECIFIED INPUT CAPTURE, USING DEFAULT")
+
+target_regions_ = args.capture or "DHS-003Z.primers-150bp.bed"
+sample = args.sample or "sorted_bashirli.bam"
+save_name = sample.split(".bam")[0]
 
 
-# def take_genes_from_bed(name_of_bed: str):
-#     names = ['chr', 'start', 'stop', 'gene', 'to_drop', 'strand']
-#     df = pd.read_csv(name_of_bed, sep="\t",
-#                      header=None,
-#                      names=names,
-#                      skiprows=1)
-#
-#     df = df.drop('to_drop', axis=1)
-#     return np.unique(df.gene.values)
-#
-#
-#
-# df = pd.read_csv("coverage_tab", sep="\t", names=['sequence', 'start', 'stop', 'coverage'])
+def time_check(func):
+    def wrapper(*args, **kwargs):
+        start_time = datetime.datetime.now()
+        func(*args, **kwargs)
+        end_time = datetime.datetime.now()
+        print(f"finished in {(end_time - start_time).seconds} seconds")
 
-target_regions_ = "DHS-003Z.primers-150bp.bed"
-patient_ = "sorted_bashirli.bam"
-save_name = patient_.split(".bam")[0]
+    return wrapper
 
 
 def depth_calculation_in_target_regions(target_regions: str = target_regions_,
-                                        patient: str = patient_) -> pd.DataFrame:
+                                        patient: str = sample) -> pd.DataFrame:
     command = f"samtools bedcov {target_regions} {patient}".strip().split(' ')
     temp_file = tempfile.NamedTemporaryFile()
 
@@ -53,7 +58,8 @@ def depth_calculation_in_target_regions(target_regions: str = target_regions_,
 
         return df
 
-    raise PipelineError(f"an error occurred during the\n >>>> {' '.join(command)} <<<<\nERROR from {samtools_bedcov.stderr}")
+    raise PipelineError(
+        f"an error occurred during the\n >>>> {' '.join(command)} <<<<\nERROR from {samtools_bedcov.stderr}")
 
 
 def depth_calculation_for_genes(df):
@@ -76,13 +82,18 @@ def depth_calculation_for_genes(df):
     return result
 
 
-if __name__ == '__main__':
+@time_check
+def main():
     df = depth_calculation_in_target_regions()
     df = depth_calculation_for_genes(df=df)
     df.to_excel(f"./gene_coverage/{save_name}.xlsx", sheet_name=f"{save_name}", index=False)
+    print(f"saved to {os.getcwd()}/gene_coverage/{save_name}.xlsx")
 
     barplot_for_genes = sns.barplot(df.gene, df.mean_cov_depth_X)  # TODO pretty barplot
     fig = barplot_for_genes.get_figure()
     fig.savefig(f"figures/{save_name}.png")
+    print(f"saved to {os.getcwd()}/figures/{save_name}.png")
 
-    print(df.head())
+
+if __name__ == '__main__':
+    main()
