@@ -3,14 +3,13 @@ import subprocess
 import pandas as pd
 import numpy as np
 import tempfile
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 
 class PipelineError(Exception):
     pass
 
-
-# 1) collect coverage statistics by bedtools genomecov -ibam sorted_bashirli.bam -bg > coverage_tab
-# ADD TO PYTHON SUBPROCESS TODO
 
 # 2) Plot raw coverage by pandas and seaborn TODO
 # 3) Filter low coverage regions TODO
@@ -81,4 +80,9 @@ if __name__ == '__main__':
     df = depth_calculation_in_target_regions()
     df = depth_calculation_for_genes(df=df)
     df.to_excel(f"./gene_coverage/{save_name}.xlsx", sheet_name=f"{save_name}", index=False)
+
+    barplot_for_genes = sns.barplot(df.gene, df.mean_cov_depth_X)  # TODO pretty barplot
+    fig = barplot_for_genes.get_figure()
+    fig.savefig(f"figures/{save_name}.png")
+
     print(df.head())
