@@ -7,29 +7,11 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import os
 import datetime
+import sys
 
 
 class PipelineError(Exception):
     pass
-
-
-parser = argparse.ArgumentParser()
-parser.add_argument("--sample", help="Name of mapped sample file <BAM>", type=str)
-parser.add_argument("--capture", help="Name of target regions file <BED>", type=str)
-args = parser.parse_args()
-
-if args.sample:
-    print(f"SAMPLE: {args.sample}")
-else:
-    print(f"NO SPECIFIED INPUT SAMPLE, USING DEFAULT")
-if args.capture:
-    print(f"CAPTURE: {args.capture}")
-else:
-    print(f"NO SPECIFIED INPUT CAPTURE, USING DEFAULT")
-
-target_regions_ = args.capture or "DHS-003Z.primers-150bp.bed"
-sample = args.sample or "sorted_bashirli.bam"
-save_name = sample.split(".bam")[0]
 
 
 def time_check(func):
@@ -42,29 +24,29 @@ def time_check(func):
     return wrapper
 
 
-def breadth_calculation_in_target_regions(target_regions: str = target_regions_,
-                                          patient: str = sample) -> pd.DataFrame:  # TODO need to be refactored as
-    command = f"samtools coverage -a {patient} -b {target_regions}".strip().split(' ')
+def breadth_calculation_in_target_regions(target_regions: str, sample: str) -> pd.DataFrame:
+    command = f"bedtools coverage -a {target_regions} -b {sample}".strip().split(' ')
     temp_file = tempfile.NamedTemporaryFile()
 
-    samtools_coverage = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding="utf-8")
+    bedtools_coverage = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding="utf-8")
 
     with open(temp_file.name, 'w')as temp:
-        temp.write(samtools_coverage.stdout)
+        temp.write(bedtools_coverage.stdout)
 
-    if not samtools_coverage.stderr:
+    if bedtools_coverage.stderr:
         names = ["chr", "start", "end", "gene", "to_drop", "starnd", "n_reads",
-                 "n_bases_covered", "length_of_gene_fragment", "percent_covered"]
+                 "n_bases_covered", "length_of_gene_fragment", "percent covered (%)"]
         df = pd.read_csv(temp_file, sep="\t", names=names).drop("to_drop", axis=1)
 
         return df
 
-    raise PipelineError
+    raise PipelineError(
+        f"an error occurred during the\n >>>> {' '.join(command)} <<<<\nERROR from {bedtools_coverage.stderr}"
+    )
 
 
-def depth_calculation_in_target_regions(target_regions: str = target_regions_,
-                                        patient: str = sample) -> pd.DataFrame:
-    command = f"samtools bedcov {target_regions} {patient}".strip().split(' ')
+def depth_calculation_in_target_regions(target_regions: str, sample: str) -> pd.DataFrame:
+    command = f"samtools bedcov {target_regions} {sample}".strip().split(' ')
     temp_file = tempfile.NamedTemporaryFile()
 
     samtools_bedcov = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding="utf-8")
@@ -84,14 +66,14 @@ def depth_calculation_in_target_regions(target_regions: str = target_regions_,
 
 def breadth_calculation_for_genes(df):
     cover = {"gene": [],
-             "percent_covered": []}
+             "percent covered (%)": []}
 
     for gene in df.gene.unique():
-        percent = df[df.gene == gene].percent_covered.mean()
+        percent = df[df.gene == gene]["percent covered (%)"].mean()
         cover["gene"].append(gene)
-        cover["percent_covered"].append(round(percent * 100, 2))
+        cover["percent covered (%)"].append(round(percent * 100, 2))
 
-    df = pd.DataFrame(cover).sort_values(by="percent_covered", ascending=False) \
+    df = pd.DataFrame(cover).sort_values(by="gene", ascending=False) \
         .reset_index() \
         .drop("index", axis=1)
 
@@ -100,43 +82,75 @@ def breadth_calculation_for_genes(df):
 
 def depth_calculation_for_genes(df):
     dct = {"gene": [],
-           "mean_cov_depth_X": []}
+           "mean coverage depth (X)": []}
 
     for gene in np.unique(df.gene.values):
         dct["gene"].append(gene)
-        dct["mean_cov_depth_X"].append(df[df.gene == gene].depth.sum() /
+        dct["mean coverage depth (X)"].append(df[df.gene == gene].depth.sum() /
                                        (df[df.gene == gene].end - df[df.gene == gene].start).sum())
 
     result = pd.DataFrame(dct)
 
-    result = result.sort_values('mean_cov_depth_X', ascending=False) \
+    result = result.sort_values(by="gene", ascending=False) \
         .reset_index() \
         .drop('index', axis=1)
 
-    result["mean_cov_depth_X"] = result["mean_cov_depth_X"].apply(round)
+    result["mean coverage depth (X)"] = result["mean coverage depth (X)"].apply(round)
 
     return result
 
 
-@time_check
-def main():
-    depth = depth_calculation_in_target_regions()
+def analysis(sample, target):
+    save_name = sample.split("/")[-1].rstrip(".bam")
+
+    depth = depth_calculation_in_target_regions(sample=sample, target_regions=target)
     depth = depth_calculation_for_genes(df=depth)
 
-    breadth = breadth_calculation_in_target_regions()
+    breadth = breadth_calculation_in_target_regions(sample=sample, target_regions=target)
     breadth = breadth_calculation_for_genes(df=breadth)
 
-    # result = depth.join(on=depth, how=inner)
+    result = pd.concat([depth, breadth["percent covered (%)"]], axis=1) \
+        .sort_values("percent covered (%)", ascending=False).reset_index(drop=True)
 
-    depth.to_excel(f"./gene_coverage/depth.{save_name}.xlsx", sheet_name=f"{save_name}", index=False)
-    print(f"saved to {os.getcwd()}/gene_coverage/{save_name}.xlsx")
-    breadth.to_excel(f"./gene_coverage/breadth.{save_name}.xlsx", sheet_name=f"{save_name}", index=False)
-    print(f"saved to {os.getcwd()}/gene_coverage/{save_name}.xlsx")
+    result.to_excel(f"./gene_coverage/depth.{save_name}.xlsx", sheet_name=f"{save_name}", index=False)
+    print(f"analysis of {sample} DONE\n"
+          f"saved to {os.getcwd()}/gene_coverage/{save_name}.xlsx")
 
-    barplot_for_genes = sns.barplot(depth.gene, depth.mean_cov_depth_X)  # TODO pretty barplot
-    fig = barplot_for_genes.get_figure()
-    fig.savefig(f"figures/{save_name}.png")
-    print(f"saved to {os.getcwd()}/figures/{save_name}.png")
+    # barplot_for_genes = sns.barplot(depth.gene, depth.mean coverage depth (X))  # TODO pretty barplot
+    # fig = barplot_for_genes.get_figure()
+    # fig.savefig(f"figures/{save_name}.png")
+    # print(f"saved to {os.getcwd()}/figures/{save_name}.png")
+
+
+@time_check
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--sample", help="Name of mapped sample file <BAM>", type=str)
+    parser.add_argument("--target", help="Name of target regions file <BED>", type=str)
+    parser.add_argument("--all", nargs='*', default=["mapped", "DHS-003Z.primers-150bp.bed"],
+                        help="specify DIRECTORY and TARGET_NAME", metavar="directory primers")
+    args = parser.parse_args()
+
+    print(args.all)
+    if args.all:
+        directory, target = args.all[0], args.all[1]
+        print(f"MODE all selected\nDIRECTORY: {os.getcwd()}/{directory}\nTARGET REGIONS: {os.getcwd()}/{target}")
+
+        for sample in os.listdir(f"{os.getcwd()}/{directory}"):
+            sample = os.path.abspath(f"{directory}/{sample}")
+            if sample.endswith("bai"):
+                continue
+
+            analysis(sample=sample, target=target)
+        return
+
+    if args.sample and args.target:
+        print(f"SAMPLE: {args.sample}\ntarget: {args.target}")
+    else:
+        print(f"NO SPECIFIED INPUT SAMPLE OR TARGET, use -help")
+        sys.exit()
+
+    analysis(sample=args.sample, target=args.target)
 
 
 if __name__ == '__main__':
