@@ -1,4 +1,5 @@
 import argparse
+import re
 import subprocess
 import pandas as pd
 import numpy as np
@@ -33,8 +34,8 @@ def breadth_calculation_in_target_regions(target_regions: str, sample: str) -> p
     with open(temp_file.name, 'w')as temp:
         temp.write(bedtools_coverage.stdout)
 
-    if bedtools_coverage.stderr:
-        names = ["chr", "start", "end", "gene", "to_drop", "starnd", "n_reads",
+    if not bedtools_coverage.stderr or re.findall(r"WARNING", bedtools_coverage.stderr):
+        names = ["chr", "start", "end", "gene", "to_drop", "strand", "n_reads",
                  "n_bases_covered", "length_of_gene_fragment", "percent covered (%)"]
         df = pd.read_csv(temp_file, sep="\t", names=names).drop("to_drop", axis=1)
 
@@ -87,7 +88,7 @@ def depth_calculation_for_genes(df):
     for gene in np.unique(df.gene.values):
         dct["gene"].append(gene)
         dct["mean coverage depth (X)"].append(df[df.gene == gene].depth.sum() /
-                                       (df[df.gene == gene].end - df[df.gene == gene].start).sum())
+                                              (df[df.gene == gene].end - df[df.gene == gene].start).sum())
 
     result = pd.DataFrame(dct)
 
@@ -116,10 +117,39 @@ def analysis(sample, target):
     print(f"analysis of {sample} DONE\n"
           f"saved to {os.getcwd()}/gene_coverage/{save_name}.xlsx")
 
-    # barplot_for_genes = sns.barplot(depth.gene, depth.mean coverage depth (X))  # TODO pretty barplot
-    # fig = barplot_for_genes.get_figure()
-    # fig.savefig(f"figures/{save_name}.png")
-    # print(f"saved to {os.getcwd()}/figures/{save_name}.png")
+    graph(result)
+
+
+def graph(df):
+    def quality_setter(depth):
+        if depth < 101:
+            return "< 100"
+        elif 100 < depth < 500:
+            return "100-500"
+        elif 501 < depth < 1000:
+            return "500-1000"
+        elif depth > 1001:
+            return "> 1000"
+
+    df["quality"] = df["mean coverage depth (X)"].apply(quality_setter)
+
+    colors = ["forest green", "green", "amber", "red"]
+    palette = sns.palplot(sns.xkcd_palette(colors))
+
+    x = df.gene
+    y = df["percent covered (%)"]
+
+    figsize = (15, 8) if len(df) <= 51 else (30, 8)
+    plt.figure(figsize=figsize)
+
+    fig = sns.barplot(x=x, y=y, hue=df["quality"],
+                      orient='v', palette=palette, hue_order=["> 1000", "500-1000", "100-500", "< 100"], dodge=False);
+    plt.legend(title="Depth X", loc="upper right", bbox_to_anchor=(0.5, 0.5, 0.5, 0.5))
+    loc, labels = plt.xticks()
+    fig.set_xticklabels(labels, rotation=60);
+    plt.savefig("./figs/test.svg", format="svg")
+
+    print("figure saved at './figs/test.svg'")
 
 
 @time_check
@@ -134,7 +164,7 @@ def main():
     print(args.all)
     if args.all:
         directory, target = args.all[0], args.all[1]
-        print(f"MODE all selected\nDIRECTORY: {os.getcwd()}/{directory}\nTARGET REGIONS: {os.getcwd()}/{target}")
+        print(f"MODE: all samples in directory\nDIRECTORY: {os.getcwd()}/{directory}\nTARGET REGIONS: {os.getcwd()}/{target}")
 
         for sample in os.listdir(f"{os.getcwd()}/{directory}"):
             sample = os.path.abspath(f"{directory}/{sample}")
