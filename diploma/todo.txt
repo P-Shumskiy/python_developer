@@ -1,0 +1,2 @@
+1. Check zero-based and one-base is all ok?
+2. Warnings in bedtools as errors, skip them.

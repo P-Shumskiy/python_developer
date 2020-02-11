@@ -115,12 +115,12 @@ def analysis(sample, target):
 
     result.to_excel(f"./gene_coverage/depth.{save_name}.xlsx", sheet_name=f"{save_name}", index=False)
     print(f"analysis of {sample} DONE\n"
-          f"saved to {os.getcwd()}/gene_coverage/{save_name}.xlsx")
+          f"analysis results saved in {os.getcwd()}/gene_coverage/{save_name}.xlsx")
 
-    graph(result)
+    graph(result, save_name)
 
 
-def graph(df):
+def graph(df, save_name):
     def quality_setter(depth):
         if depth < 101:
             return "< 100"
@@ -147,9 +147,10 @@ def graph(df):
     plt.legend(title="Depth X", loc="upper right", bbox_to_anchor=(0.5, 0.5, 0.5, 0.5))
     loc, labels = plt.xticks()
     fig.set_xticklabels(labels, rotation=60);
-    plt.savefig("./figs/test.svg", format="svg")
 
-    print("figure saved at './figs/test.svg'")
+    full_name = f"{os.path.abspath('./figs/')}/{save_name}.svg"
+    plt.savefig(full_name, format="svg")
+    print(f"graph saved in {full_name}/{save_name}.svg\n")
 
 
 @time_check
@@ -157,25 +158,28 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--sample", help="Name of mapped sample file <BAM>", type=str)
     parser.add_argument("--target", help="Name of target regions file <BED>", type=str)
-    parser.add_argument("--all", nargs='*', default=["mapped", "DHS-003Z.primers-150bp.bed"],
-                        help="specify DIRECTORY and TARGET_NAME", metavar="directory primers")
+    parser.add_argument("--all", help="specify DIRECTORY and TARGET_NAME", metavar="directory primers",
+                        nargs='*')
     args = parser.parse_args()
 
-    print(args.all)
     if args.all:
         directory, target = args.all[0], args.all[1]
-        print(f"MODE: all samples in directory\nDIRECTORY: {os.getcwd()}/{directory}\nTARGET REGIONS: {os.getcwd()}/{target}")
+        print(f"MODE: all samples in directory\n"
+              f"DIRECTORY: {os.getcwd()}/{directory}\n"
+              f"TARGET REGIONS: {os.getcwd()}/{target}\n")
 
         for sample in os.listdir(f"{os.getcwd()}/{directory}"):
             sample = os.path.abspath(f"{directory}/{sample}")
-            if sample.endswith("bai"):
+            if not sample.endswith("bam"):
                 continue
 
             analysis(sample=sample, target=target)
         return
 
     if args.sample and args.target:
-        print(f"SAMPLE: {args.sample}\ntarget: {args.target}")
+        print(f"MODE: one sample\n"
+              f"SAMPLE: {args.sample}\n"
+              f"TARGET: {args.target}\n")
     else:
         print(f"NO SPECIFIED INPUT SAMPLE OR TARGET, use -help")
         sys.exit()
