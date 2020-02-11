@@ -164,7 +164,7 @@ def main():
 
     if args.all:
         directory, target = args.all[0], args.all[1]
-        print(f"MODE: all samples in directory\n"
+        print(f"MODE: all samples in directorHEADy\n"
               f"DIRECTORY: {os.getcwd()}/{directory}\n"
               f"TARGET REGIONS: {os.getcwd()}/{target}\n")
 
