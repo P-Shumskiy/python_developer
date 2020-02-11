@@ -139,7 +139,7 @@ def graph(df, save_name):
     x = df.gene
     y = df["percent covered (%)"]
 
-    figsize = (15, 8) if len(df) <= 51 else (30, 8)
+    figsize = (15, 6) if len(df) <= 51 else (30, 6)
     plt.figure(figsize=figsize)
 
     fig = sns.barplot(x=x, y=y, hue=df["quality"],
@@ -164,7 +164,7 @@ def main():
 
     if args.all:
         directory, target = args.all[0], args.all[1]
-        print(f"MODE: all samples in directorHEADy\n"
+        print(f"MODE: all samples in directory\n"
               f"DIRECTORY: {os.getcwd()}/{directory}\n"
               f"TARGET REGIONS: {os.getcwd()}/{target}\n")
 
@@ -176,7 +176,7 @@ def main():
             analysis(sample=sample, target=target)
         return
 
-    if args.sample and args.target:
+    elif args.sample and args.target:
         print(f"MODE: one sample\n"
               f"SAMPLE: {args.sample}\n"
               f"TARGET: {args.target}\n")
