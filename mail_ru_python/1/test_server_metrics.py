@@ -1,5 +1,5 @@
 import sys
-from client_to_send_metrics import Client, ClientError
+from client_to_send_metrics import Client
 
 
 def run(host, port):
