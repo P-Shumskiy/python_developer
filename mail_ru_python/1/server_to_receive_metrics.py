@@ -1,11 +1,19 @@
 import asyncio
 import re
 
-
 DATA_STORAGE = dict()
 ERROR_MESSAGE = "error\nwrong command\n\n"
 OK_MESSAGE = "ok\n\n"
 
+
+def get_timestamps(key):
+    timestamps = {}
+    for i in range(len(DATA_STORAGE[key])):
+        timestamp_ = DATA_STORAGE[key][i][1]
+        index = i
+        timestamps[timestamp_] = index
+
+    return timestamps
 
 def is_valid_message(message, command):
     splitted_message = message.split(' ')[1::]
@@ -25,7 +33,7 @@ def is_valid_message(message, command):
             assert len(splitted_message) == 1
             # assert splitted_message[0].rstrip() == "*"
 
-    except(AssertionError, ValueError):
+    except(IndexError, AssertionError, ValueError):
         status = False
 
     return status
@@ -33,7 +41,7 @@ def is_valid_message(message, command):
 
 def get(message):
     if is_valid_message(message, command="get"):
-        key = message.split(' ')[1]
+        key = message.split(' ')[1].rstrip()
         answer_string = "ok\n"
 
         if key in DATA_STORAGE.keys():
@@ -56,7 +64,6 @@ def get(message):
 
 
 def put(message):
-
     if is_valid_message(message, command="put"):
         splitted_message = message.split(' ')
         key = splitted_message[1]
@@ -66,8 +73,12 @@ def put(message):
             DATA_STORAGE[key] = [(value, timestamp)]
 
         else:
-            if (value, timestamp) not in DATA_STORAGE[key]:
+            timestamps = get_timestamps(key)
+
+            if timestamp not in timestamps:
                 DATA_STORAGE[key].append((value, timestamp))
+            else:
+                DATA_STORAGE[key][timestamps[timestamp]] = (value, timestamp)
 
         return OK_MESSAGE
 
@@ -89,17 +100,20 @@ def generate_answer(message):
 
 
 async def handle_echo(reader, writer):
-    data = await reader.read(1024)
-    message = data.decode("utf-8")
-    addr = writer.get_extra_info("peername")
+    while True:
+        data = await reader.read(1024)
+        if data:
+            message = data.decode("utf-8")
+            addr = writer.get_extra_info("peername")
 
-    answer = generate_answer(message)
-    print(f"received {message} from {addr}\n")
+            answer = generate_answer(message)
+            print(f"received {message} from {addr}\n")
 
-    writer.write(answer.encode("utf-8"))
-    print(f"return answer {ascii(answer)}\n")
-    # print(DATA_STORAGE)
-    await handle_echo(reader, writer)
+            writer.write(answer.encode("utf-8"))
+            print(f"return answer {ascii(answer)}\n")
+        else:
+            break
+        # print(DATA_STORAGE)
 
 
 def run_server(host, port):  # TODO remove params before sending
@@ -118,4 +132,3 @@ def run_server(host, port):  # TODO remove params before sending
 
 if __name__ == '__main__':
     run_server("127.0.0.1", 10_001)
-
